@@ -1,9 +1,9 @@
 import destinos.*
 
 object pabloHari {
-	// const nombreUsuario = "PHari"
-	var historial = [toninas,goodAirs]
-	var listaUsuarios = []
+	
+	var historial = #{toninas,goodAirs}
+	var listaUsuarios = #{}
 	var dineroEnCuenta = 1500 
 	
 	method historial() = historial
@@ -11,9 +11,11 @@ object pabloHari {
 	method dineroEnCuenta() = dineroEnCuenta
 	
 	method volarA(unDestino) {
-		self.puedeVolarA(unDestino)
-		historial.add(unDestino)
-		dineroEnCuenta -= unDestino.precio()
+		if (self.puedeVolarA(unDestino)){
+			historial.add(unDestino)
+			dineroEnCuenta -= unDestino.precio()
+			return "Viaje comprado"
+		} else return "No puede volar"
 	}
 	
 	method puedeVolarA(unDestino) {
@@ -29,8 +31,13 @@ object pabloHari {
 	}
 	
 	method seguirA(unUsuario) {
+		self.agregarSeguido(unUsuario)
+		unUsuario.agregarSeguido(self)
+	}
+	
+	method agregarSeguido(unUsuario) {
 		listaUsuarios.add(unUsuario)
-		unUsuario.seguirA(self)
 	}
 	
 }
+
