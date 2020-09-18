@@ -3,21 +3,13 @@ object garlic {
 	const equipajeImprescindible = ["cania de pescar","piloto"]
 	var precio = 2500
 	
-	method nombre() {
-		return nombre
-	}
+	method nombre() = nombre
 	
-	method precio() {
-		return precio
-	}
+	method precio() = precio
 	
-	method equipajeImprescindible() {
-		return equipajeImprescindible
-	}
+	method equipajeImprescindible() = equipajeImprescindible
 	
-	method esDestacado() {
-		return precio > 2000
-	}
+	method esDestacado() = precio > 2000
 	
 	method descontar(unValor) {
 		equipajeImprescindible.add("certificado de descuento")
@@ -37,21 +29,13 @@ object silver {
 	const equipajeImprescindible = ["protector solar","equipo de buceo"]
 	var precio = 1350
 	
-	method nombre() {
-		return nombre
-	}
+	method nombre() = nombre
 	
-	method precio() {
-		return precio
-	}
+	method precio() = precio
 	
-	method equipajeImprescindible() {
-		return equipajeImprescindible
-	}
-		
-	method esDestacado() {
-		return precio > 2000
-	}
+	method equipajeImprescindible() = equipajeImprescindible
+	
+	method esDestacado() = precio > 2000
 	
 	method descontar(unValor) {
 		equipajeImprescindible.add("certificado de descuento")
@@ -69,21 +53,13 @@ object toninas {
 	const equipajeImprescindible = ["vacuna gripal","vacuna B","necronomicon"]
 	var precio = 3500
 	
-	method nombre() {
-		return nombre
-	}
+	method nombre() = nombre
 	
-	method precio() {
-		return precio
-	}
+	method precio() = precio
 	
-	method equipajeImprescindible() {
-		return equipajeImprescindible
-	}
-		
-	method esDestacado() {
-		return precio > 2000
-	}
+	method equipajeImprescindible() = equipajeImprescindible
+	
+	method esDestacado() = precio > 2000
 	
 	method descontar(unValor) {
 		equipajeImprescindible.add("certificado de descuento")
@@ -102,21 +78,13 @@ object goodAirs {
 	const equipajeImprescindible = ["cerveza","protector solar"]
 	var precio = 1500
 	
-	method nombre() {
-		return nombre
-	}
+	method nombre() = nombre
 	
-	method precio() {
-		return precio
-	}
+	method precio() = precio
 	
-	method equipajeImprescindible() {
-		return equipajeImprescindible
-	}	
+	method equipajeImprescindible() = equipajeImprescindible
 	
-	method esDestacado() {
-		return precio > 2000
-	}
+	method esDestacado() = precio > 2000
 	
 	method descontar(unValor) {
 		equipajeImprescindible.add("certificado de descuento")
