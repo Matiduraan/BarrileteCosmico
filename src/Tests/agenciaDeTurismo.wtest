@@ -1,0 +1,125 @@
+import barrileteCosmico.barrileteCosmico
+import destinos.*
+import usuarios.pabloHari
+
+
+describe "contexto agencia de turismo Barrilete Cosmico"{
+	
+	test "test los destinos mas importantes de esta agencia es una coleccion con garlic y toninas" {
+
+		assert.that(barrileteCosmico.destinosMasImportantes() == [garlic,toninas])
+	}
+	
+	test "test el destino Silver's Sea de esta agencia no es peligroso" {
+		
+		assert.notThat((barrileteCosmico.destinosMasImportantes()).contains(silver))
+		
+	}
+	
+	// no se si tiene que ser un test de barrilete cosmico o solo preguntar por las toninas individualmente
+	// test "test los destinos mas peligrosos es una coleccion que solo tiene a toninas" {
+	// }
+	
+	test "test la agencia es extrema" {
+		
+		assert.that(barrileteCosmico.esExtrema())
+		
+	}
+	
+	test "test la carta de destinos de la agencia es una coleccion con Garlic's Sea, Silver's Sea, Last Toninas y Good Airs" {
+		
+		assert.that(barrileteCosmico.cartaDeDestinos() == ["Garlic's Sea","Silver's Sea","Last Toninas","Good Airs"])
+		
+	}
+	
+}
+
+describe "contexto Barrilete Cosmico aplica descuentos a las toninas" {
+	
+	fixture {
+		barrileteCosmico.aplicarDescuentoA(toninas,0.25)
+	}
+	
+	test "test el precio de Last Toninas luego del 25% de descuento, es de $2625" {
+	
+		assert.equals(2625,toninas.precio())
+	
+	}
+	
+	test "test Last Toninas tiene el certificado de descuento luego del 25% de descuento " {
+		
+		assert.that((toninas.equipajeImprescindible()).contains("certificado de descuento"))
+		
+	}
+}
+
+describe "contexto Barrilete Cosmico aplica descuentos a todos sus destinos" {
+
+	fixture {
+		barrileteCosmico.aplicarDescuentoA(garlic,0.15)
+		barrileteCosmico.aplicarDescuentoA(silver,0.15)
+		barrileteCosmico.aplicarDescuentoA(toninas,0.15)
+		barrileteCosmico.aplicarDescuentoA(goodAirs,0.15)
+	}
+	
+	test "test el precio de Garlic's Sea luego del 15% de descuento, es de $2125" {
+	
+		assert.equals(2125,garlic.precio())
+	
+	}
+	
+	test "test el precio de Silver's Sea luego del 15% de descuento, es de $1147.5" {
+	
+		assert.equals(1147.5,silver.precio())
+	
+	}
+	
+	test "test el precio de Last Toninas luego del 15% de descuento, es de $2975" {
+	
+		assert.equals(2975,toninas.precio())
+	
+	}
+	
+	test "test el precio de Good Airs luego del 15% de descuento, es de $1275" {
+	
+		assert.equals(1275,goodAirs.precio())
+	
+	}
+	
+	test "test todos los destinos deben tener el certificado de descuento" {
+		
+		assert.that((garlic.equipajeImprescindible()).contains("certificado de descuento"))
+		assert.that((silver.equipajeImprescindible()).contains("certificado de descuento"))
+		assert.that((toninas.equipajeImprescindible()).contains("certificado de descuento"))
+		assert.that((goodAirs.equipajeImprescindible()).contains("certificado de descuento"))
+		
+	}
+
+}
+
+describe "contexto el usuario PHari de la agencia Barrilete Cosmico" {
+	
+	test "test los kilometros del usuario son 500" {
+		
+		assert.equals(500,pabloHari.kilometros())
+		
+	}
+	
+	test "test el historial del usuario, luego de hacerlo volar a Silver's Sea exitosamente, contiene ese destino" {
+		
+		pabloHari.volarA(silver)
+		assert.that((pabloHari.historial()).contains(silver))
+		
+	}
+	
+	test "test el usuario,luego de volar una vez a Silver's Sea, posee $150 en su cuenta" {
+		
+		pabloHari.volarA(silver)
+		assert.equals(150,pabloHari.dineroEnCuenta())
+		
+	}
+	
+	
+}
+
+
