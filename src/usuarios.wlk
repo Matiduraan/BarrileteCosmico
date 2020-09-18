@@ -29,7 +29,7 @@ object pabloHari {
 	}
 	
 	method costoTotalDeDestinos() {
-		return (historial.map({unDestino => unDestino.precio()})).sum()
+		return  historial.sum({unDestino => unDestino.precio()})
 	}
 	
 	method seguirA(unUsuario) {
