@@ -6,13 +6,9 @@ object pabloHari {
 	var listaUsuarios = []
 	var dineroEnCuenta = 1500 
 	
-	method historial() {
-		return historial
-	}
-	
-	method dineroEnCuenta() {
-		return dineroEnCuenta
-	}
+	method historial() = historial
+		
+	method dineroEnCuenta() = dineroEnCuenta
 	
 	method volarA(unDestino) {
 		self.puedeVolarA(unDestino)
