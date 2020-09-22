@@ -15,7 +15,7 @@ object pabloHari {
 			historial.add(unDestino)
 			dineroEnCuenta -= unDestino.precio()
 			return "Viaje comprado"
-		} else return "No puede volar"
+		} else return "No puede viajar"
 	}
 	
 	method puedeVolarA(unDestino) {
@@ -40,4 +40,3 @@ object pabloHari {
 	}
 	
 }
-
