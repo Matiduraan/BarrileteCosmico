@@ -3,32 +3,41 @@ import destinos.*
 import usuarios.pabloHari
 
 
-describe "contexto agencia de turismo Barrilete Cosmico"{
+describe "contexto condiciones iniciales"{
 	
-	test "test los destinos mas importantes de esta agencia es una coleccion con garlic y toninas" {
+	test "test los destinos mas importantes de Barrilete Cosmico es una coleccion con garlic y toninas" {
 
-		assert.that(barrileteCosmico.destinosMasImportantes() == [garlic,toninas])
+		assert.equals(#{garlic,toninas},barrileteCosmico.destinosMasImportantes())
 	}
 	
-	test "test el destino Silver's Sea de esta agencia no es peligroso" {
+	test "test el destino Silver's Sea no es peligroso" {
 		
-		assert.notThat((barrileteCosmico.destinosMasImportantes()).contains(silver))
+		assert.notThat(silver.esPeligroso())
 		
 	}
+		
+	test "test el unico destino peligroso de Barrilete Cosmico es Last Toninas" {
 	
-	// no se si tiene que ser un test de barrilete cosmico o solo preguntar por las toninas individualmente
-	// test "test los destinos mas peligrosos es una coleccion que solo tiene a toninas" {
-	// }
+		assert.equals(#{toninas},barrileteCosmico.destinosPeligrosos())
 	
-	test "test la agencia es extrema" {
+	}
+	
+	test "test Barrilete Cosmico es una empresa extrema" {
 		
 		assert.that(barrileteCosmico.esExtrema())
 		
 	}
 	
-	test "test la carta de destinos de la agencia es una coleccion con Garlic's Sea, Silver's Sea, Last Toninas y Good Airs" {
+	test "test la carta de destinos de Barrilete Cosmico es una coleccion con Garlic's Sea, Silver's Sea, Last Toninas y Good Airs" {
 		
-		assert.that(barrileteCosmico.cartaDeDestinos() == ["Garlic's Sea","Silver's Sea","Last Toninas","Good Airs"])
+		assert.equals(["Garlic's Sea","Silver's Sea","Last Toninas","Good Airs"],barrileteCosmico.cartaDeDestinos())
+		
+	}
+	
+		
+	test "test los kilometros del usuario PHari son 500Km" {
+		
+		assert.equals(500,pabloHari.kilometros())
 		
 	}
 	
@@ -97,29 +106,22 @@ describe "contexto Barrilete Cosmico aplica descuentos a todos sus destinos" {
 
 }
 
-describe "contexto el usuario PHari de la agencia Barrilete Cosmico" {
+describe "contexto el usuario PHari luego de volar a Silver's Sea" {
 	
-	test "test los kilometros del usuario son 500" {
-		
-		assert.equals(500,pabloHari.kilometros())
-		
+	fixture {
+		pabloHari.volarA(silver)
 	}
 	
-	test "test el historial del usuario, luego de hacerlo volar a Silver's Sea exitosamente, contiene ese destino" {
+	test "test el historial del usuario contiene ese destino" {
 		
-		pabloHari.volarA(silver)
 		assert.that((pabloHari.historial()).contains(silver))
 		
 	}
 	
-	test "test el usuario,luego de volar una vez a Silver's Sea, posee $150 en su cuenta" {
-		
-		pabloHari.volarA(silver)
+	test "test el usuario posee $150 en su cuenta" {
+
 		assert.equals(150,pabloHari.dineroEnCuenta())
 		
 	}
 	
-	
 }
-
-
