@@ -12,9 +12,12 @@ object barrileteCosmico {
 	}
 	
 	method esExtrema() {
-		return destinos.any({unDestino => unDestino.esPeligroso()})
+		return !(self.destinosPeligrosos()).isEmpty()
 	}
 	
+	method destinosPeligrosos() {
+		return destinos.filter({unDestino => unDestino.esPeligroso()})
+	}
 	method cartaDeDestinos() {
 		return destinos.map({unDestino => unDestino.nombre()})
 	}
