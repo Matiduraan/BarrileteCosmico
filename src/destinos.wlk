@@ -16,12 +16,10 @@ object garlic {
 		precio -= unValor
 	}
 	
-	// Aca tendriamos que ver una forma de usar "vacuna" sola, sin agregarle gripal ni B
-	
 	method esPeligroso() {
-		return equipajeImprescindible.contains("vacuna gripal") || equipajeImprescindible.contains("vacuna B")
-	}
-	
+		const equipajeConVacunas = equipajeImprescindible.filter({elemento=>elemento.contains("vacuna")})
+		return !equipajeConVacunas.isEmpty()
+	}	
 }
 
 object silver {
@@ -41,9 +39,10 @@ object silver {
 		equipajeImprescindible.add("certificado de descuento")
 		precio -= unValor
 	}
-	
+
 	method esPeligroso() {
-		return equipajeImprescindible.contains("vacuna gripal") || equipajeImprescindible.contains("vacuna B")
+		const equipajeConVacunas = equipajeImprescindible.filter({elemento=>elemento.contains("vacuna")})
+		return !equipajeConVacunas.isEmpty()
 	}
 	
 }
@@ -67,9 +66,9 @@ object toninas {
 	}
 	
 	method esPeligroso() {
-		return equipajeImprescindible.contains("vacuna gripal") || equipajeImprescindible.contains("vacuna B")
-	}
-	
+		const equipajeConVacunas = equipajeImprescindible.filter({elemento=>elemento.contains("vacuna")})
+		return !equipajeConVacunas.isEmpty()
+	}	
 }
 
 
@@ -92,7 +91,7 @@ object goodAirs {
 	}
 	
 	method esPeligroso() {
-		return equipajeImprescindible.contains("vacuna gripal") || equipajeImprescindible.contains("vacuna B")
+		const equipajeConVacunas = equipajeImprescindible.filter({elemento=>elemento.contains("vacuna")})
+		return !equipajeConVacunas.isEmpty()
 	}
-	
 }
