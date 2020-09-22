@@ -1,7 +1,7 @@
 import destinos.*
 
 object barrileteCosmico {
-	const destinos = [garlic,silver,toninas,goodAirs]
+	const destinos = #{garlic,silver,toninas,goodAirs}
 	
 	method destinosMasImportantes() {
 		return destinos.filter({unDestino => unDestino.esDestacado()})
