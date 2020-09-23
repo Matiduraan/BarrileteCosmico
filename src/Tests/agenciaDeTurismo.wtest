@@ -30,7 +30,7 @@ describe "contexto condiciones iniciales"{
 	
 	test "test la carta de destinos de Barrilete Cosmico es una coleccion con Garlic's Sea, Silver's Sea, Last Toninas y Good Airs" {
 		
-		assert.equals(["Garlic's Sea","Silver's Sea","Last Toninas","Good Airs"],barrileteCosmico.cartaDeDestinos())
+		assert.equals(["Garlic's Sea", "Good Airs", "Silver's Sea", "Last Toninas"],barrileteCosmico.cartaDeDestinos())
 		
 	}
 	
